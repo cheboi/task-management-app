@@ -1,8 +1,7 @@
 <template>
   <div class="app-container">
     <Sidebar />
-    <div class="main-content">
-      <Navbar />
+    <div class="content">
       <router-view />
     </div>
   </div>
@@ -10,18 +9,18 @@
 
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
-import Navbar from "@/components/Navbar.vue";
 </script>
 
 <style scoped>
 .app-container {
   display: flex;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
 }
 
-.main-content {
+.content {
   flex: 1;
+  margin-left: 180px;
   background: #f5f5f7;
   padding: 20px;
 }
