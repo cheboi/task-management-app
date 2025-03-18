@@ -1,10 +1,11 @@
 <template>
   <div class="overview-container">
+    <!-- Left Section -->
     <div class="left-section">
       <!-- User Greetings -->
       <div class="header">
         <div>
-          <h2>👋 Hello, Moses Cheboi</h2>
+          <h2>👋 Hello, John Doe</h2>
           <p>Welcome back to your task dashboard!</p>
         </div>
         <div class="user-info">
@@ -16,13 +17,18 @@
       <!-- Running Task Chart -->
       <div class="card">
         <h3>📊 Running Task Progress</h3>
-        <TaskChart />
+        <TaskGraph />
       </div>
 
-      <!-- Activities Graph -->
+      <!-- Recent Activities -->
       <div class="card">
-        <h3>📈 Activities Overview</h3>
-        <ActivityGraph />
+        <h3>⚡ Recent Activities</h3>
+        <ul class="activities-list">
+          <li v-for="activity in recentActivities" :key="activity.id">
+            <span class="activity-text">{{ activity.text }}</span>
+            <span class="activity-time">{{ activity.time }}</span>
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -33,14 +39,44 @@
         <h3>📅 Calendar</h3>
         <CalendarComponent />
       </div>
+
+      <!-- Upcoming Deadlines -->
+      <div class="card">
+        <h3>⏳ Upcoming Deadlines</h3>
+        <ul class="deadlines-list">
+          <li v-for="task in upcomingDeadlines" :key="task.id">
+            <span class="task-name">{{ task.name }}</span>
+            <span class="task-date">{{ task.date }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import TaskChart from "../components/TaskChart.vue";
-import ActivityGraph from "../components/ActivityGraph.vue";
-import CalendarComponent from "../components/CalendarComponent.vue";
+import { ref, onMounted } from "vue";
+import TaskGraph from "@/components/TaskGraph.vue";
+import CalendarComponent from "@/components/CalendarComponent.vue";
+
+// Reactive State for Data
+const recentActivities = ref([]);
+const upcomingDeadlines = ref([]);
+
+// Load data from task.json
+const loadTasks = async () => {
+  try {
+    const response = await fetch("/data/task.json");
+    const data = await response.json();
+    recentActivities.value = data.recent_activities;
+    upcomingDeadlines.value = data.upcoming_deadlines;
+  } catch (error) {
+    console.error("Failed to load task data:", error);
+  }
+};
+
+// Fetch data on component mount
+onMounted(loadTasks);
 </script>
 
 <style scoped>
@@ -48,6 +84,9 @@ import CalendarComponent from "../components/CalendarComponent.vue";
   display: flex;
   gap: 20px;
   width: 100%;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
   color: #141522;
 }
 
@@ -70,28 +109,32 @@ import CalendarComponent from "../components/CalendarComponent.vue";
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
-.header {
+.activities-list,
+.deadlines-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activities-list li,
+.deadlines-list li {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.task-name,
+.activity-text {
+  font-weight: 500;
 }
 
-.icon-bell {
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+.task-date,
+.activity-time {
+  color: gray;
+  font-size: 0.9em;
 }
 </style>
