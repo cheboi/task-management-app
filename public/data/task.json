@@ -1,0 +1,59 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Design UI for Dashboard",
+      "status": "In Progress",
+      "priority": "High",
+      "due_date": "2025-03-20"
+    },
+    {
+      "id": 2,
+      "title": "Fix login issue",
+      "status": "Completed",
+      "priority": "Medium",
+      "due_date": "2025-03-18"
+    },
+    {
+      "id": 3,
+      "title": "Update API Documentation",
+      "status": "Upcoming",
+      "priority": "Low",
+      "due_date": "2025-03-25"
+    }
+  ],
+  "recent_activities": [
+    {
+      "id": 1,
+      "text": "Completed 'Fix login issue'",
+      "time": "2 hours ago"
+    },
+    {
+      "id": 2,
+      "text": "Started 'Design UI for Dashboard'",
+      "time": "Yesterday"
+    },
+    {
+      "id": 3,
+      "text": "Assigned 'Update API Documentation' to Sarah",
+      "time": "3 days ago"
+    }
+  ],
+  "upcoming_deadlines": [
+    {
+      "id": 1,
+      "name": "Submit UI Design",
+      "date": "2025-03-22"
+    },
+    {
+      "id": 2,
+      "name": "Client Review Meeting",
+      "date": "2025-03-24"
+    },
+    {
+      "id": 3,
+      "name": "Project Submission",
+      "date": "2025-04-01"
+    }
+  ]
+}
