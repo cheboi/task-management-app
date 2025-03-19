@@ -1,8 +1,6 @@
 <template>
   <div class="overview-container">
-    <!-- Left Section -->
     <div class="left-section">
-      <!-- User Greetings -->
       <div class="header">
         <div>
           <h2>👋 Hello, John Doe</h2>
@@ -32,7 +30,6 @@
       </div>
     </div>
 
-    <!-- Right Section -->
     <div class="right-section">
       <!-- Calendar -->
       <div class="card">
@@ -40,7 +37,6 @@
         <CalendarComponent />
       </div>
 
-      <!-- Upcoming Deadlines -->
       <div class="card">
         <h3>⏳ Upcoming Deadlines</h3>
         <ul class="deadlines-list">
@@ -75,43 +71,96 @@ const loadTasks = async () => {
   }
 };
 
-// Fetch data on component mount
 onMounted(loadTasks);
 </script>
 
 <style scoped>
+/* Main Layout */
 .overview-container {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   width: 100%;
   height: 100vh;
-  padding: 20px;
+  padding: 24px;
   box-sizing: border-box;
+  background-color: #f5f5f7;
   color: #141522;
 }
 
+/* Left Section - Larger than right */
 .left-section {
-  flex: 2;
+  flex: 2.5;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
+/* Right Section - Smaller */
 .right-section {
-  flex: 1;
+  flex: 1.5;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
+/* Header - Greeting & User Info */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #10197a;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-bell {
+  font-size: 20px;
+  color: #10197a;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #10197a;
+}
+
+/* Cards */
 .card {
   background: white;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
 
+.card h3 {
+  font-size: 1.4rem;
+  color: #10197a;
+  margin-bottom: 10px;
+}
+
+/* Activities List */
 .activities-list,
 .deadlines-list {
   list-style: none;
@@ -123,8 +172,14 @@ onMounted(loadTasks);
 .deadlines-list li {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 12px;
   border-bottom: 1px solid #ddd;
+  transition: background 0.2s;
+}
+
+.activities-list li:hover,
+.deadlines-list li:hover {
+  background: rgba(16, 25, 122, 0.05);
 }
 
 .task-name,
@@ -136,5 +191,19 @@ onMounted(loadTasks);
 .activity-time {
   color: gray;
   font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .overview-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .left-section,
+  .right-section {
+    flex: 1;
+    width: 100%;
+  }
 }
 </style>
