@@ -2,7 +2,7 @@
   <div class="task-page">
     <!-- 🟢 Explore Section -->
     <div class="explore-header">
-      <h2>🚀 Explore Tasks</h2>
+      <h2>Explore Tasks</h2>
       <div class="user-info">
         <i class="icon-bell"></i>
         <img src="@/assets/avatar.png" alt="User Avatar" class="avatar" />
@@ -90,6 +90,7 @@ const categories = ref(["Design", "Development", "Marketing", "Writing"]);
 .icon-bell {
   font-size: 1.5rem;
   cursor: pointer;
+  color:#141522;
 }
 
 .avatar {
