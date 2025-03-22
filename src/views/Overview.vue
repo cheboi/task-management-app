@@ -3,7 +3,7 @@
     <div class="left-section">
       <div class="header">
         <div>
-          <h2>👋 Hello, John Doe</h2>
+          <h2>👋 Hello, Moses Cheboi</h2>
           <p>Welcome back to your task dashboard!</p>
         </div>
         <div class="user-info">
@@ -20,8 +20,8 @@
 
       <!-- Recent Activities -->
       <div class="card">
-        <h3>⚡ Recent Activities</h3>
         <ul class="activities-list">
+          <h3>⚡ Recent Activities</h3>
           <li v-for="activity in recentActivities" :key="activity.id">
             <span class="activity-text">{{ activity.text }}</span>
             <span class="activity-time">{{ activity.time }}</span>
@@ -32,12 +32,12 @@
 
     <div class="right-section">
       <!-- Calendar -->
-      <div class="card">
+      <div class="card-calender">
         <h3>📅 Calendar</h3>
         <CalendarComponent />
       </div>
 
-      <div class="card">
+      <div class="card-dealline">
         <h3>⏳ Upcoming Deadlines</h3>
         <ul class="deadlines-list">
           <li v-for="task in upcomingDeadlines" :key="task.id">
@@ -147,11 +147,13 @@ onMounted(loadTasks);
 
 /* Cards */
 .card {
+  display: flex;
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
+  gap: 50;
 }
 
 .card h3 {
@@ -165,7 +167,7 @@ onMounted(loadTasks);
 .deadlines-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: auto;
 }
 
 .activities-list li,
