@@ -1,29 +1,27 @@
-# task-management-app
+# Task Management App  
 
-This template should help get you started developing with Vue 3 in Vite.
+A **Vue 3** task management application designed to help users track their tasks, deadlines, and mentors. The app features task progress tracking, upcoming deadlines, recent activities, and an interactive mentor listing.
 
-## Recommended IDE Setup
+## 🚀 Features  
+- ✔ **Task Dashboard** – View running tasks, progress charts, and activities.  
+- ✔ **Task Explorer** – Search, filter, and sort tasks easily.  
+- ✔ **Time Limit Section** – Track deadlines with progress bars.  
+- ✔ **Mentors Page** – Browse mentors with ratings, reviews, and task counts.  
+- ✔ **Interactive UI** – Scrollable task and mentor sections with working arrows.  
+- ✔ **Responsive Layout** – Expands dynamically to avoid UI breaking.  
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Customize configuration
+## 🛠️ Tech Stack  
+- 🔹 **Frontend:** Vue 3, Vite, Tailwind CSS  
+- 🔹 **Charts:** Chart.js with vue-chartjs  
+- 🔹 **State Management:** Vue Composition API (ref, reactive)  
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## 📦 Installation & Setup  
 
+### 1️⃣ Clone the Repository  
 ```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+git clone https://github.com/YOUR-USERNAME/task-management-app.git
+cd task-management-app
