@@ -23,5 +23,5 @@ A **Vue 3** task management application designed to help users track their tasks
 
 ### 1️⃣ Clone the Repository  
 ```sh
-git clone https://github.com/YOUR-USERNAME/task-management-app.git
+git clone https://github.com/cheboi/task-management-app.git
 cd task-management-app
